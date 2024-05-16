@@ -74,11 +74,12 @@ fs.createReadStream("./Day7/data.csv")
             }
         });
 
-        // TODO: Sum all the of the numbers less than 100000 and sum them
-        let sum = 0;
+        // TODO: Find smallest 
+        let smallestDirToDelete = 100000000;
         for (const [key, value] of Object.entries(dirSizeDict)) {
-            if (value <= 100000) sum += value;
+            if (value >= 6090134 && value < smallestDirToDelete) smallestDirToDelete = value;
         }
 
-        console.log(sum);
+        console.log(smallestDirToDelete);
+        //console.log(dirSizeDict['/']); // Found that we need to delete 6090134 more to get to 30,000,000 free space 
     });
