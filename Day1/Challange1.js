@@ -84,7 +84,7 @@ function CSVToArray( strData, strDelimiter ){
 const fs = require("fs");
 
 // Read data from the file as a string
-let csvData = fs.readFileSync("data.csv", "utf-8");
+let csvData = fs.readFileSync("Day1/data.csv", "utf-8");
 csvData = csvData.trim();
 
 // Function turns data into an array 
