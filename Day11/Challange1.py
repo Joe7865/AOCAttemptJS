@@ -1,26 +1,39 @@
-import pandas as pd
-csvData = pd.read_csv('.\Day11\data.csv', sep=" ", header=None)
-print(csvData.head()) # to display the first 5 lines of loaded data
 
-"""cycle = 0
-x = 1
-cyclesOfInterest = [20,60,100,140,180,220]
-signalSum = 0
-# The signal strength is the cycle number multiplied by x
-# noop takes 1 cycle and does nothing
-# addx takes 2 cycles and adds the given number after these cycles are complete
+import math
 
-for index, row in csvData.iterrows():
-    com = row[0]
-    val = row[1]
-    commandCycle = 0
-    while((com == 'noop' and commandCycle != 1) or (com == 'addx' and commandCycle != 2)):
-        cycle += 1
-        commandCycle += 1
-        if cycle in cyclesOfInterest:
-            signalSum += (cycle * x)
-            print("SignalStrength={0} cycle={1} x={2}".format((cycle * x), cycle, x))
-        if commandCycle == 2:
-            x += val
+dataFile = open('.\Day11\data.csv', 'r')
+lines = dataFile.readlines()
 
-print(signalSum) """
+class monkey:
+    def __init__(self, newId, newWorLevs):
+        self.id = newId
+        self.currentWorryLevs = newWorLevs
+
+    def executeRound(self):
+        for lev in self.currentWorryLevs:
+            newLev = self.applyOp(lev)
+            mThrow = self.monkeyToThrow(newLev)
+
+            # TODO: Add lev to thrown monkeys list
+            # TODO: remove lev from current monkeys list
+
+
+
+    def applyOp(self, wLev):
+        return math.floor((wLev + 1)/3) # TODO: how to do this
+    
+    def monkeyToThrow(self, wLev):
+        if wLev % 17 == 0: # TODO
+            return 0 # TODO
+        else:
+            return 1 # TODO
+
+
+    
+ 
+count = 0
+# Strips the newline character
+for line in lines:
+    count += 1
+    print("Line{}: {}".format(count, line.strip()))
+
